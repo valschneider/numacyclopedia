@@ -1,0 +1,9 @@
+This is a collection of NUMA topologies that can be tested on any platform
+thanks to QEMU.
+
+Replace the contents of qemu.sh with whatever incantation works for you, the
+default provided uses an arm64 target because that's clearly the superior
+architecture.
+
+Mostly meant to be run with CONFIG_SCHED_DEBUG=y and 'sched_verbose'
+(or 'sched_debug' for older kernels) on the cmdline.
