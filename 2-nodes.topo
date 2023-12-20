@@ -1,5 +1,8 @@
 # Boring dual socket
 
--smp cores=4 \
--numa node,cpus=0-1,nodeid=0 -numa node,cpus=2-3,nodeid=1, \
+-smp cpus=4 \
+-object memory-backend-ram,id=m0,size=256M \
+-object memory-backend-ram,id=m1,size=256M \
+-numa node,cpus=0-1,nodeid=0,memdev=m0 \
+-numa node,cpus=2-3,nodeid=1,memdev=m1 \
 -numa dist,src=0,dst=1,val=20

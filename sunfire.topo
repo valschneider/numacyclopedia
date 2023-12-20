@@ -9,16 +9,47 @@
 # 7  16 14 14 14 14 12 12 10
 
 -smp cores=8 \
--numa node,cpus=0,nodeid=0 -numa node,cpus=1,nodeid=1, -numa node,cpus=2,nodeid=2, \
--numa node,cpus=3,nodeid=3, -numa node,cpus=4,nodeid=4, -numa node,cpus=5,nodeid=5, \
--numa node,cpus=6,nodeid=6, -numa node,cpus=7,nodeid=7, \
--numa dist,src=0,dst=1,val=12, \
--numa dist,src=0,dst=2,val=12, -numa dist,src=0,dst=3,val=12, -numa dist,src=0,dst=4,val=14, \
--numa dist,src=0,dst=5,val=14, -numa dist,src=0,dst=6,val=14, -numa dist,src=0,dst=7,val=16, \
--numa dist,src=1,dst=2,val=14, -numa dist,src=1,dst=3,val=12, -numa dist,src=1,dst=4,val=14, \
--numa dist,src=1,dst=5,val=14, -numa dist,src=1,dst=6,val=12, -numa dist,src=1,dst=7,val=14, \
--numa dist,src=2,dst=3,val=14, -numa dist,src=2,dst=4,val=12, -numa dist,src=2,dst=5,val=12, \
--numa dist,src=2,dst=6,val=14, -numa dist,src=2,dst=7,val=14, -numa dist,src=3,dst=4,val=12, \
--numa dist,src=3,dst=5,val=12, -numa dist,src=3,dst=6,val=14, -numa dist,src=3,dst=7,val=14, \
--numa dist,src=4,dst=5,val=14, -numa dist,src=4,dst=6,val=12, -numa dist,src=4,dst=7,val=14, \
--numa dist,src=5,dst=6,val=14, -numa dist,src=5,dst=7,val=12, -numa dist,src=6,dst=7,val=12
+-object memory-backend-ram,id=m0,size=64M \
+-object memory-backend-ram,id=m1,size=64M \
+-object memory-backend-ram,id=m2,size=64M \
+-object memory-backend-ram,id=m3,size=64M \
+-object memory-backend-ram,id=m4,size=64M \
+-object memory-backend-ram,id=m5,size=64M \
+-object memory-backend-ram,id=m6,size=64M \
+-object memory-backend-ram,id=m7,size=64M \
+-numa node,cpus=0,nodeid=0,memdev=m0 \
+-numa node,cpus=1,nodeid=1,memdev=m1 \
+-numa node,cpus=2,nodeid=2,memdev=m2 \
+-numa node,cpus=3,nodeid=3,memdev=m3 \
+-numa node,cpus=4,nodeid=4,memdev=m4 \
+-numa node,cpus=5,nodeid=5,memdev=m5 \
+-numa node,cpus=6,nodeid=6,memdev=m6 \
+-numa node,cpus=7,nodeid=7,memdev=m7 \
+-numa dist,src=0,dst=1,val=12 \
+-numa dist,src=0,dst=2,val=12 \
+-numa dist,src=0,dst=3,val=12 \
+-numa dist,src=0,dst=4,val=14 \
+-numa dist,src=0,dst=5,val=14 \
+-numa dist,src=0,dst=6,val=14 \
+-numa dist,src=0,dst=7,val=16 \
+-numa dist,src=1,dst=2,val=14 \
+-numa dist,src=1,dst=3,val=12 \
+-numa dist,src=1,dst=4,val=14 \
+-numa dist,src=1,dst=5,val=14 \
+-numa dist,src=1,dst=6,val=12 \
+-numa dist,src=1,dst=7,val=14 \
+-numa dist,src=2,dst=3,val=14 \
+-numa dist,src=2,dst=4,val=12 \
+-numa dist,src=2,dst=5,val=12 \
+-numa dist,src=2,dst=6,val=14 \
+-numa dist,src=2,dst=7,val=14 \
+-numa dist,src=3,dst=4,val=12 \
+-numa dist,src=3,dst=5,val=12 \
+-numa dist,src=3,dst=6,val=14 \
+-numa dist,src=3,dst=7,val=14 \
+-numa dist,src=4,dst=5,val=14 \
+-numa dist,src=4,dst=6,val=12 \
+-numa dist,src=4,dst=7,val=14 \
+-numa dist,src=5,dst=6,val=14 \
+-numa dist,src=5,dst=7,val=12 \
+-numa dist,src=6,dst=7,val=12

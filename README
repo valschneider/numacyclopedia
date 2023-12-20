@@ -7,10 +7,3 @@ architecture.
 
 Mostly meant to be run with CONFIG_SCHED_DEBUG=y and 'sched_verbose'
 (or 'sched_debug' for older kernels) on the cmdline.
-
-KNOWN_ISSUES:
-
-Faking NUMA nodes on QEMU beyond commit:
-  b21aa7e01eb8 ("numa: drop support for '-numa node' (without memory specified)")
-doesn't work - it seems we're now supposed to specify -memdev but I couldn't get
-it to work ¯\_(ツ)_/¯
