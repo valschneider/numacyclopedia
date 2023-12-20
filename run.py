@@ -27,12 +27,14 @@ def main():
     parser.add_argument("topology", help="The NUMA topology file to use")
     parser.add_argument("--script", default="qemu.sh", help="The QEMU script to run")
     parser.add_argument("--cmdline", default="", help="Extra cmdline arguments")
+    parser.add_argument("--gdb", default=False, action="store_true", help="Start GDB server")
 
     args = parser.parse_args()
 
     topology_file = args.topology
     script_file = args.script
     cmdline = args.cmdline
+    gdb = args.gdb
 
     topology = " ".join(line for line in iter_lines(topology_file))
 
@@ -45,6 +47,8 @@ def main():
 
         script_lines.append(line)
 
+    if (gdb):
+        script_lines.append("-s -S")
 
     script = " ".join(script_lines)
 
